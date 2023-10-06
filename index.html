@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Text Transition | Abdelaty</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <style>
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1;
+            transition: border-bottom 0.3s;
+        }
+        
+        .header.sticky {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+        }
+        
+        .header a.logo {
+            text-decoration: none;
+            color: #fff;
+            font-size: 24px;
+        }
+        
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+            transition: border-top 0.3s;
+        }
+        
+        .footer.sticky {
+            border-top: 1px solid rgba(0, 0, 0, 0.2);
+        }
+        
+        .footer a {
+            text-decoration: none;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <a href="https://khalidabdelaty.github.io/Portfoilo" class="logo">KHALID!</a>
+    </header>
+    <svg viewBox="0 0 960 300">
+        <symbol id="s-text">
+            <text id="user-text" text-anchor="middle" x="50%" y="80%"></text>
+        </symbol>
+        <g class="g-ants">
+            <use xlink:href="#s-text" class="text-copy"></use>
+            <use xlink:href="#s-text" class="text-copy"></use>
+            <use xlink:href="#s-text" class="text-copy"></use>
+            <use xlink:href="#s-text" class="text-copy"></use>
+            <use xlink:href="#s-text" class="text-copy"></use>
+        </g>
+    </svg>
+    <footer class="footer">
+        <a href="#">Copyright © 2023 by Abdelaty | All Rights Reserved.</a>
+    </footer>
+    <script>
+        function promptForName() {
+            const userText = prompt("Please enter your name:");
+            if (userText !== null && userText.trim() !== "") {
+                document.getElementById("user-text").textContent = userText;
+            }
+        }
+        window.addEventListener("load", promptForName);
+        window.addEventListener("scroll", function() {
+            const header = document.querySelector(".header");
+            const footer = document.querySelector(".footer");
+            if (window.scrollY > 0) {
+                header.classList.add("sticky");
+                footer.classList.add("sticky");
+            } else {
+                header.classList.remove("sticky");
+                footer.classList.remove("sticky");
+            }
+        });
+    </script>
+</body>
+
+</html>
