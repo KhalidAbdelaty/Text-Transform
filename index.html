@@ -74,13 +74,21 @@
         <a href="#">Copyright © 2023 by Abdelaty | All Rights Reserved.</a>
     </footer>
     <script>
-        function promptForName() {
+        // Function to prompt the user for their name and play music
+        function promptForNameAndPlayMusic() {
             const userText = prompt("Please enter your name:");
             if (userText !== null && userText.trim() !== "") {
                 document.getElementById("user-text").textContent = userText;
+
+                const audio = new Audio('SHIKA.mp3');
+
+                audio.play();
             }
         }
-        window.addEventListener("load", promptForName);
+
+        // Call the promptForNameAndPlayMusic function when the page loads (or trigger it with a button)
+        window.addEventListener("load", promptForNameAndPlayMusic);
+
         window.addEventListener("scroll", function() {
             const header = document.querySelector(".header");
             const footer = document.querySelector(".footer");
